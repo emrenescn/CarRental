@@ -1,0 +1,63 @@
+﻿using DataAccess.Abstract;
+using Entities.Concrete;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataAccess.Concrete
+{
+    //public class InMemoryProductDal : ICarDal
+    //{
+    //    List<Car> cars=new List<Car>
+    //    {
+    //        new Car{Id=1,ColorId=1,BrandId=1,DailyPrice=300,ModelYear=new DateTime(1962),Description="Mustang"},
+    //        new Car{Id=2,ColorId=2,BrandId=2,DailyPrice=400,ModelYear=new DateTime(2010),Description="BMW"},
+    //        new Car{Id=3,ColorId=3,BrandId=3,DailyPrice=500,ModelYear=new DateTime(2020),Description="Royce Royce"},
+    //        new Car{Id=4,ColorId=4,BrandId=4,DailyPrice=600,ModelYear=new DateTime(2022),Description="Audi R8"},
+    //        new Car{Id=5,ColorId=5,BrandId=5,DailyPrice=700,ModelYear=new DateTime(2000),Description="Bugatti"},
+    //    };
+    //    public void Add(Car car)
+    //    {
+    //        cars.Add(car);
+    //    }
+
+    //    public void Delete(Car car)
+    //    {
+    //        Car deleteToCar=cars.SingleOrDefault(c=>c.Id==car.Id);
+    //        cars.Remove(deleteToCar);  
+    //    }
+
+    //    public List<Car> Get(Expression<Func<Car, bool>> filter)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+
+    //    public List<Car> GetAll()
+    //    {
+    //        return cars;
+    //    }
+
+    //    public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+
+    //    public List<Car> GetById(int id)
+    //    {
+    //        return cars.Where(c => c.Id == id).ToList();
+    //    }
+
+    //    public void Update(Car car)
+    //    {
+    //        Car updateToCar = cars.SingleOrDefault(c => c.Id == car.Id);
+    //        updateToCar.ModelYear = car.ModelYear;
+    //        updateToCar.BrandId = car.BrandId;
+    //        updateToCar.Description = car.Description;
+    //        updateToCar.DailyPrice=car.DailyPrice;
+    //        updateToCar.ColorId=car.ColorId;  
+    //    }
+    //}
+}
