@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Aspects.Autofac.Caching;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +26,7 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("getbyid")]
+        [HttpGet("getbybrandid")]
         public IActionResult GetByBrandId(int brandId)
         {
           var result=_carService.GetCarsByBrandId(brandId);
@@ -35,17 +36,18 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("getbyid")]
+        [HttpGet("getbycolorid")]
         public IActionResult GetByColorId(int colorId)
         {
             var result=_carService.GetCarsByColorId(colorId);
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
             return BadRequest(result);
         }
         [HttpPost("add")]
+        
         public IActionResult Add(Car car)
         {
             var result=_carService.Add(car);
@@ -66,6 +68,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("update")]
+        
         public IActionResult Update(Car car)
         {
             var result=_carService.Update(car);
@@ -74,6 +77,17 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
             return BadRequest(result);
+        }
+        [HttpPost("transactionaltest")]
+        public IActionResult AddTransactionalTest(Car car)
+        {
+             var result=_carService.AddTransactionalTest(car);
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            return BadRequest(result.Message);
+            
         }
     }
 }
