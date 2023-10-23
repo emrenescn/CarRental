@@ -1,18 +1,16 @@
-﻿using Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concrete
+namespace Entities.DTOs
 {
-    public class CarImage:IEntity
+    
+    public  class CarByImageDto
     {
         public int Id { get; set; }
         public int CarId { get; set; }
-        public DateTime ImageDate { get; set; }
         public string ImagePath { get; set; }
-
     }
 }

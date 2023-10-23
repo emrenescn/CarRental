@@ -14,14 +14,14 @@ namespace ConsoleUI
            
 
         }
-        private static void CarTest()
-        {
-            ICarDal carDal = new EfCarDal();
-            CarManager carManager = new CarManager(carDal);
-            foreach (Car car in carManager.GetAll().Data)
-            {
-                Console.WriteLine(car.ModelYear);
-            }
-        }
+        //private static void CarTest()
+        //{
+        //    ICarDal carDal = new EfCarDal();
+        //    CarManager carManager = new CarManager(carDal);
+        //    foreach (Car car in carManager.GetAll().Data)
+        //    {
+        //        Console.WriteLine(car.ModelYear);
+        //    }
+        //}
     }
 }

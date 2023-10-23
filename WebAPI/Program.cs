@@ -22,10 +22,11 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Host.UseServiceProviderFactory(services => new AutofacServiceProviderFactory())
 .ConfigureContainer<ContainerBuilder>(builder => { builder.RegisterModule(new AutofacBusinessModule()); });
-//builder.Services.AddCors(options =>
-//{
-//    options.AddPolicy("AllowOrigin", builder => builder.WithOrigins("http://localhost:3000"));
-//});
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowOrigin",
+        builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod());
+});
 var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 builder.Services.AddAuthentication(JwtBearerDefaults .AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -58,7 +59,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-//app.UseCors(builder=>builder.WithOrigins("http://localhost:3000").AllowAnyHeader());
+app.ConfigureCustomExceptionMiddleware(); 
+app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

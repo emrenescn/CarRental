@@ -14,7 +14,7 @@ namespace Business.ValidationRules.FluentValidation
         {
             RuleFor(r=>r.RentDate).NotEmpty();
             RuleFor(r=>r.ReturnDate).NotEmpty();
-            RuleFor(r => r.RentDate).GreaterThan(DateTime.Now).WithMessage("This car can't be rented");
+            
             
         }
      

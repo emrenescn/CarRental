@@ -42,5 +42,9 @@ namespace Business.Constants
         public static string AccessTokenCreated="Access Token Created";
         public static string AuthorizationDenied="Authorization denied";
         public static string TransactionError="Transaction Test Error";
+
+        public static string Succes = "operation success";
+        public static string Error = "operation failed";
+
     }
 }

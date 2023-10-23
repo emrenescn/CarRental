@@ -24,14 +24,16 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Color color)
         {
-            return new SuccessResult(Messages.ColorAdded);
             _colorDal.Add(color);
+            return new SuccessResult(Messages.ColorAdded);
+           
         }
 
         public IResult Delete(Color color)
         {
-            return new SuccessResult(Messages.ColorDeleted);
             _colorDal.Delete(color);
+            return new SuccessResult(Messages.ColorDeleted);
+            
         }
 
         public IDataResult<List<Color>> GetAll()
@@ -47,8 +49,9 @@ namespace Business.Concrete
 
         public IResult Update(Color color)
         {
+            _colorDal.Update(color);
             return new SuccessResult(Messages.ColorUpdated);
-            _colorDal.Update(color);    
+                
         }
     }
 }

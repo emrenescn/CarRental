@@ -31,8 +31,9 @@ namespace Business.Concrete
             {
                 return result;
             }
-            _fileService.UploadFile(file, CarImagePathConstants.imagePath);
+            //_fileService.UploadFile(file, CarImagePathConstants.imagePath);
             carImage.ImageDate = DateTime.Now;
+            carImage.ImagePath =@"Uploads/CarImages"+ _fileService.UploadFile(file, CarImagePathConstants.imagePath);
             _carImageDal.Add(carImage);
             return new SuccessResult("Image uploaded succesfully");
         }

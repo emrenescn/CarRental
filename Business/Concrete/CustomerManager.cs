@@ -24,14 +24,16 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Customer customer)
         {
-            return new SuccessResult(Messages.CustomerAdded);
             _customerDal.Add(customer);
+            return new SuccessResult(Messages.CustomerAdded);
+            
         }
 
         public IResult Delete(Customer customer)
         {
-            return new SuccessResult(Messages.CustomerDeleted);
             _customerDal.Delete(customer);
+            return new SuccessResult(Messages.CustomerDeleted);
+            
         }
 
         public IDataResult<List<Customer>> GetAll()
@@ -46,8 +48,9 @@ namespace Business.Concrete
 
         public IResult Update(Customer customer)
         {
-            return new SuccessResult(Messages.CustomerUpdated);
             _customerDal.Update(customer);
+            return new SuccessResult(Messages.CustomerUpdated);
+            
         }
     }
 }
